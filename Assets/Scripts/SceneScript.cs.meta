@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f6dcbf5d7eddcd040877e2e32acc2a32
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - HealthTextB: {instanceID: 0}
+  - HealthTextR: {instanceID: 0}
+  - Bonus: {fileID: 6736100596300794081, guid: ad7054b67238cab4fb2a0dc71bbf776a, type: 3}
+  - Crown: {fileID: 227776722494229385, guid: 9f112171c7fe2074286a0354c70596c1, type: 3}
+  - Poop: {fileID: 7264846910128775896, guid: 9ab155204c4b11c4d98bede4512b6707, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
