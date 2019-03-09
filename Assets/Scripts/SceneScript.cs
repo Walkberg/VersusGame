@@ -135,7 +135,7 @@ public class SceneScript : MonoBehaviour
     {
         if (Random.Range(0, 450f) < 1 /*&& LBonus.Count < 5*/)
         {
-            LBonus.Add(Instantiate(Bonus, new Vector3(Random.Range(MinGlobalBonusPos.x, MaxGlobalBonusPos.x), Random.Range(MaxGlobalBonusPos.y, MaxGlobalBonusPos.y), 0), Quaternion.identity));
+            LBonus.Add(Instantiate(Bonus, new Vector3(Random.Range(MinGlobalBonusPos.x, MaxGlobalBonusPos.x), Random.Range(MinGlobalBonusPos.y, MaxGlobalBonusPos.y), 0), Quaternion.identity));
         }
     }
     private void SetHealthText()
