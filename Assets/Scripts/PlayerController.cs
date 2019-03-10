@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-
+    public string HorizontalInput;
 
     private bool facingRight = true;
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Player1xaxis");
+        moveInput = Input.GetAxis(HorizontalInput);
         if (isGrounded || moveInput != 0)
         {
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
