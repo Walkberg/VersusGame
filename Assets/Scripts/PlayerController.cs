@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     public string HorizontalInput;
+    public string JumpInput;
 
     private bool facingRight = true;
 
+
+    private float life = 4f;
     private float speed = 6.0f;
     private float moveInput;
     public float jumpForce;
@@ -23,12 +26,14 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
 
     public LayerMask whatIsGround;
+    private Animator anim;
 
     // Start is calledd before the first frame update
     void Start()
     {
         Debug.Log("cocufiodshoi");
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,7 +52,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-
+        string str = HorizontalInput + isGrounded.ToString();
+        Debug.Log(KeyCode.Space); 
         if (moveInput < 0 && facingRight)
         {
             Flip();
@@ -59,13 +65,13 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(feetPose.position, checkRadius, whatIsGround);
 
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded == true && Input.GetKeyDown(JumpInput))
         {
             jumpTimeCounter = jumpTime;
             isJumping = true;
             rb.velocity = Vector2.up * jumpForce;
         }
-        if (Input.GetKey(KeyCode.Space) && isJumping)
+        if (Input.GetKey(JumpInput) && isJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -77,10 +83,21 @@ public class PlayerController : MonoBehaviour
                 isJumping = false;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(JumpInput))
         {
             isJumping = false;
         }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            life--;
+            anim.SetFloat("Life", life);
+        }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            life++;
+            anim.SetFloat("Life", life);
+        }
+
     }
     private void Flip()
     {
