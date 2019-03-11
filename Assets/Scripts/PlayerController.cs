@@ -43,10 +43,20 @@ public class PlayerController : MonoBehaviour
         if (isGrounded || moveInput != 0)
         {
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            
         }
         else
         {
             rb.velocity = new Vector2(rb.velocity.x * 0.98f, rb.velocity.y);
+            
+        }
+        if(rb.velocity.x != 0)
+        {
+            anim.SetBool("iswalking", true);
+        }
+        else
+        {
+            anim.SetBool("iswalking", false);
         }
 
     }
