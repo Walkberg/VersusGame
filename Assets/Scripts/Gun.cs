@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2D;
     [SerializeField] private GameObject bullet;
     private string id;
 
@@ -44,8 +44,8 @@ public class Gun : MonoBehaviour
             Lbullets.RemoveAt(0);
         }
         Lbullets.Add(Instantiate(bullet, transform.position, Quaternion.identity));
-        rigidbody2D = Lbullets[Lbullets.Count - 1].GetComponent<Rigidbody2D>();
-        rigidbody2D.velocity = BulletOrientation();
+        rb2D = Lbullets[Lbullets.Count - 1].GetComponent<Rigidbody2D>();
+        rb2D.velocity = BulletOrientation();
     }
 
     private Vector2 BulletOrientation()

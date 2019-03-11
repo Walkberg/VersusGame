@@ -133,7 +133,7 @@ public class SceneScript : MonoBehaviour
     }
     private void RandomBonusSpawn()
     {
-        if (Random.Range(0, 450f) < 1 /*&& LBonus.Count < 5*/)
+        if (Random.Range(0, 450f) < 3 /*&& LBonus.Count < 5*/)
         {
             LBonus.Add(Instantiate(Bonus, new Vector3(Random.Range(MinGlobalBonusPos.x, MaxGlobalBonusPos.x), Random.Range(MinGlobalBonusPos.y, MaxGlobalBonusPos.y), 0), Quaternion.identity));
         }
