@@ -36,17 +36,20 @@ public class Bonuses : MonoBehaviour
     {
         switch (bt)
         {
-            case 1:
+            case 1: //Speed
                 sp.sprite = BonusSprites[0];
                 break;
-            case 2:
+            case 2: //CommandChange
                 sp.sprite = BonusSprites[1];
                 break;
-            case 3:
+            case 3: //switchGravity
                 sp.sprite = BonusSprites[2];
                 break;
-            case 4:
+            case 4: //Growth
                 sp.sprite = BonusSprites[3];
+                break;
+            case 5:
+
                 break;
             default:
                 sp.sprite = BonusSprites[4];
@@ -108,6 +111,7 @@ public class Bonuses : MonoBehaviour
             case 4:
                 CaseGrowth(chars);
                 break;
+
             default:
                 break;
         }
@@ -185,6 +189,7 @@ public class Bonuses : MonoBehaviour
             chars[index].rb.gravityScale = -chars[index].rb.gravityScale;
             chars[index].transform.localScale = new Vector3(chars[index].transform.localScale.x, -chars[index].transform.localScale.y, chars[index].transform.localScale.z);
         }
+        // TODO adapter FeetPos 
     }
     private void CaseGrowth(List<Character> chars)
     {
@@ -223,5 +228,44 @@ public class Bonuses : MonoBehaviour
                 chars[index].Player.transform.localScale = new Vector3(Scale.x / GrowthBoost, Scale.y / GrowthBoost);
             }
         }
+        // TODO adapter FeetPos 
+    }
+    private void CaseHammerNail(List<Character> chars)
+    {
+        int index = 0;
+        GameObject Gun;
+        Vector3 Scale;
+        if (IsBonus == 0)
+        {
+            foreach (var item in chars)
+            {
+                if (item.Player.name != collideName)
+                {
+                    if (isOnCollisionEnter)
+                    {
+
+                    }
+                    if (isOnUpdate)
+                    {
+
+                    }
+                }
+            }
+        }
+        else
+        {
+            index = chars.IndexOf(chars.Find(x => x.Player.name == collideName));
+
+            Scale = chars[index].Player.transform.localScale;
+            if (isOnCollisionEnter)
+            {
+                chars[index].Player.transform.localScale = new Vector3(Scale.x * GrowthBoost, Scale.y * GrowthBoost);
+            }
+            if (isOnUpdate)
+            {
+                chars[index].Player.transform.localScale = new Vector3(Scale.x / GrowthBoost, Scale.y / GrowthBoost);
+            }
+        }
+
     }
 }
