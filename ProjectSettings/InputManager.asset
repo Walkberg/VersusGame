@@ -185,8 +185,8 @@ InputManager:
     m_Name: Player2yaxis
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: i
-    positiveButton: k
+    negativeButton: up
+    positiveButton: down
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

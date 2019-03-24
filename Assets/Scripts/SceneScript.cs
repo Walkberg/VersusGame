@@ -31,7 +31,7 @@ public class SceneScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        SetCharacters(NbPlayer);
+        //SetCharacters(NbPlayer);
         Setconfig();
         SetHealthText();
     }
@@ -94,12 +94,12 @@ public class SceneScript : MonoBehaviour
             GameOver = false;
         }
 
-        SetHealthText();
+        //SetHealthText();
         
         RandomBonusSpawn();
 
-        CheckLives();
-        Behaviors();
+        //CheckLives();
+        //Behaviors();
     }
 
     private void CheckLives()
@@ -135,6 +135,7 @@ public class SceneScript : MonoBehaviour
     {
         if (Random.Range(0, 450f) < 1 /*&& LBonus.Count < 5*/)
         {
+            Debug.Log("Bonus");
             LBonus.Add(Instantiate(Bonus, new Vector3(Random.Range(MinGlobalBonusPos.x, MaxGlobalBonusPos.x), Random.Range(MinGlobalBonusPos.y, MaxGlobalBonusPos.y), 0), Quaternion.identity));
         }
     }

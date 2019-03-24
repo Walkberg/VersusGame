@@ -49,13 +49,9 @@ public class BulletBehavior : MonoBehaviour
         }
         if (contactgo.tag == "Player" && LifeTime > MinLifeTime)
         {
-            foreach (var item in SceneScript.characters)
-            {
-                if (item.Player.name == contactgo.name)
-                {
-                    item.Lives--;
-                }
-            }
+            PlayerController script = contactgo.GetComponent<PlayerController>();
+            Debug.Log(script);
+            script.setLife(script.getLife() -1);
             Destroy(this.gameObject);
         }
     }

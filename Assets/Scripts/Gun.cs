@@ -5,6 +5,10 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+    [SerializeField]  private string fireInput;
+    [SerializeField] private string xInput;
+    [SerializeField] private string yInput;
+
     [SerializeField] private GameObject bullet;
     private string id;
 
@@ -18,14 +22,11 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Player" + id + "Fire")/* && id == "1"*/)
+        if (Input.GetKeyDown(fireInput))
         {
             ShootBullet();
         }
-        //if (Input.GetButtonDown("Player" + id + "Fire") && id == "2")
-        //{
-        //    ShootBullet();
-        //}
+        
         if (SceneScript.restart == true)
         {
             foreach (var bul in Lbullets)
@@ -52,13 +53,13 @@ public class Gun : MonoBehaviour
     {
         int ox = 0, oy = 0;
         
-        if (Input.GetAxis("Player" + id + "xaxis") > 0.25)
+        if (Input.GetAxis(xInput) > 0.25)
             ox = 1;
-        else if (Input.GetAxis("Player" + id + "xaxis") < -0.25)
+        else if (Input.GetAxis(xInput) < -0.25)
             ox = -1;
-        if (Input.GetAxis("Player" + id + "yaxis") > 0.25)
+        if (Input.GetAxis(yInput) > 0.25)
             oy = -1;
-        else if (Input.GetAxis("Player" + id + "yaxis") < -0.25)
+        else if (Input.GetAxis(yInput) < -0.25)
             oy = 1;
 
         return new Vector2(ox, oy) * 10;
