@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public Transform feetPose;
     public float checkRadius;
 
+
     private bool isJumping = false;
     private float jumpTime = 0.25f;
     private float jumpTimeCounter;
@@ -51,13 +52,13 @@ public class PlayerController : MonoBehaviour
     private bool isAlive = true;
 
 
-
     // Start is calledd before the first frame update
     void Start()
     {
        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         var main = ps.main;
         main.startColor = color;
     }
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isClimbing", false);
             emission.enabled = false;
+            
         }
         
         if (moveInput < 0 && facingRight)
@@ -174,12 +176,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(JumpInput))
         {
             isJumping = false;
-        }
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            life--;
-            anim.SetFloat("Life", life);
-        }
+        }   
         if (Input.GetKeyUp(KeyCode.T))
         {
             life++;
